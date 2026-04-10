@@ -1,75 +1,62 @@
-# Nuxt Minimal Starter
+# samenoko-blog
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+個人ポートフォリオ兼ブログサイトです。Nuxt 4、Nuxt Content v3、Tailwind CSS v4 を使用して構築されています。
 
-## Setup
+## 特徴
 
-Make sure to install dependencies:
+- **Framework:** [Nuxt 4](https://nuxt.com/) (v4.4.2)
+- **Content Management:** [Nuxt Content v3](https://content.nuxt.com/) (Markdownベース)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Runtime:** Bun
+- **Deployment:** Cloudflare Pages
+- **Database:** Cloudflare D1 (コンテンツインデックス用)
+- **CMS:** [Pages CMS](https://pages-cms.com/) 連携
+
+## 技術スタック
+
+- **Nuxt 4**: モダンなWebアプリケーション開発フレームワーク。
+- **Nuxt Content v3**: Markdown ファイルをデータベース（D1）で管理・クエリ可能。
+- **Tailwind CSS v4**: 最新の CSS フレームワーク。
+- **Lucide / Material Design Icons**: `@nuxt/icon` を通じて利用。
+- **Remark Plugins**: `remark-breaks`, `remark-gfm`, `remark-link-card-plus` による高品質な Markdown レンダリング。
+
+## ローカル開発
+
+### セットアップ
+
+依存関係のインストールには Bun を推奨します。
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+### 開発サーバーの起動
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
 bun run dev
 ```
 
-## Production
+### プロダクションビルドとプレビュー
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
+Cloudflare 環境のエミュレーションを含めたプレビューが可能です。
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## デプロイ
+
+Cloudflare Pages にデプロイされます。デプロイコマンドは以下の通りです。
+
+```bash
+bun run deploy
+```
+
+## コンテンツ管理
+
+`content/` ディレクトリ内の Markdown ファイルで管理されています。
+
+- **Blog:** `content/blog/` (記事データ)
+- **Pages:** `content/pages/` (固定ページ)
+
+詳細は `GEMINI.md` を参照してください。
