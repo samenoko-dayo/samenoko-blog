@@ -18,6 +18,7 @@ useSeoMeta({
     ? `${post.value.title} - samenoko-dayo`
     : "samenoko-dayo",
   description: post.value?.description,
+  ogImage: `https://ogen.samenoko.work/og?t=${post.value?.title}&d=${post.value?.description}`
 });
 
 const breadcrumbs = [{ label: post.value?.title || "Page" }];

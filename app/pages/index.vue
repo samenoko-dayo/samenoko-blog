@@ -2,6 +2,7 @@
 useSeoMeta({
   title: "samenoko-dayo",
   description: "ブログメインなポートフォリオ擬き",
+  ogImage: `https://ogen.samenoko.work/og?t=samenoko-dayo&d=ブログメインなポートフォリオ擬き`
 });
 
 const { data: posts } = await useAsyncData("home-posts", () =>

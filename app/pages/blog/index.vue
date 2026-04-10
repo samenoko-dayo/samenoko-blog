@@ -3,6 +3,12 @@ const { data: posts } = await useAsyncData("blog-posts", () =>
   queryCollection("blog").order("date", "DESC").all(),
 );
 
+useSeoMeta({
+  title: "ブログ - samenoko-dayo",
+  description: "samenoko-dayoのブログ",
+  ogImage: `https://ogen.samenoko.work/og?t=ブログ記事一覧&d=samenoko-dayoのブログ`
+})
+
 const breadcrumbs = [{ label: "ブログ" }];
 </script>
 
