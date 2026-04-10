@@ -17,7 +17,15 @@
 	"upload_source_maps": true,
 	"compatibility_flags": [
 		"nodejs_compat"
-	]
+	],
+	"d1_databases": [
+		{
+			"binding": "samenoko_blog_db",
+			"database_name": "samenoko-blog-db",
+			"database_id": "3dccbbc9-f822-4e9d-a1d8-8c11bbee721b",
+			"remote": true
+		}
+	],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

@@ -1,6 +1,12 @@
+<script setup lang="ts">
+import "@fontsource-variable/inter";
+import "@fontsource-variable/noto-sans-jp";
+import "@fontsource-variable/geist-mono";
+</script>
+
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+  <NuxtRouteAnnouncer />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
