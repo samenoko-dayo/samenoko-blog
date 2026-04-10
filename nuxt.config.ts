@@ -14,7 +14,9 @@ export default defineNuxtConfig({
       nodeCompat: true
     },
     prerender: {
-      failOnError: false
+      failOnError: false,
+      crawlLinks: true,
+      routes: ['/', '/blog']
     }
   },
   vite: {
