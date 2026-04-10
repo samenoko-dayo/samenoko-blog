@@ -4,7 +4,7 @@ useSeoMeta({
   description: "ブログメインなポートフォリオ擬き",
 });
 
-const { data: posts } = await useAsyncData("posts", () =>
+const { data: posts } = await useAsyncData("home-posts", () =>
   queryCollection("blog").order("date", "DESC").limit(6).all(),
 );
 </script>
