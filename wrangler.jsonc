@@ -5,27 +5,10 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "samenoko-blog",
-	"main": "./.output/server/index.mjs",
 	"compatibility_date": "2026-04-10",
 	"assets": {
-		"binding": "ASSETS",
-		"directory": "./.output/public/"
+		"directory": ".output/public"
 	},
-	"observability": {
-		"enabled": true
-	},
-	"upload_source_maps": true,
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
-	"d1_databases": [
-		{
-			"binding": "samenoko_blog_db",
-			"database_name": "samenoko-blog-db",
-			"database_id": "3dccbbc9-f822-4e9d-a1d8-8c11bbee721b",
-			"remote": true
-		}
-	],
 	"route": {
 		"pattern": "samenoko.work",
 		"custom_domain": true

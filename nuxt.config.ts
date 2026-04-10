@@ -7,12 +7,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   nitro: {
-    preset: "cloudflare_module",
-
-    cloudflare: {
-      deployConfig: true,
-      nodeCompat: true
-    },
     prerender: {
       failOnError: false,
       crawlLinks: true,
@@ -26,10 +20,6 @@ export default defineNuxtConfig({
     },
   },
   content: {
-    database: {
-      type: 'd1',
-      bindingName: 'samenoko_blog_db'
-    },
     build: {
       markdown: {
         remarkPlugins: {
@@ -70,7 +60,6 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    "nitro-cloudflare-dev",
     "@nuxt/content",
     "@nuxt/image",
     "@nuxt/icon"
