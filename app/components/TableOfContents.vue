@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <nav v-if="links && links.length > 0" class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-    <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6 flex items-center gap-3">
+    <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-900 mb-6 flex items-center gap-3">
       <span class="w-1 h-3 bg-slate-900 rounded-full"></span>
       もくじ
     </h2>

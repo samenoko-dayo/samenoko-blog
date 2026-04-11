@@ -90,12 +90,17 @@ onMounted(() => {
       <aside class="hidden lg:block lg:col-span-4">
         <div class="sticky top-24">
           <TableOfContents v-if="post.body?.toc?.links" :links="post.body.toc.links" />
+          <Profile />
         </div>
       </aside>
 
       <!-- Mobile TOC (shown above content on small screens) -->
       <div class="lg:hidden order-first mb-8">
         <TableOfContents v-if="post.body?.toc?.links" :links="post.body.toc.links" />
+      </div>
+
+      <div class="lg:hidden order-last">
+        <Profile />
       </div>
     </div>
 
