@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - app/**
+      - nuxt.config.ts
   workflow_dispatch:
 
 jobs:
