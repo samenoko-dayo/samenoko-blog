@@ -60,7 +60,8 @@ export default defineNuxtConfig({
     },
   },
   ogImage: {
-    fontSubsets: ["latin", "japanese"]
+    fontSubsets: ["latin", "japanese"],
+    zeroRuntime: true
   },
   fonts: {
     families: [
