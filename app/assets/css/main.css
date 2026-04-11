@@ -85,4 +85,12 @@ html {
   .prose h2 {
     @apply border-b border-slate-200 pb-2 mb-6!;
   }
+
+  .medium-zoom-overlay {
+    @apply z-60 backdrop-blur-sm;
+  }
+
+  .medium-zoom-image {
+    @apply z-70;
+  }
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import mediumZoom from "medium-zoom";
 const route = useRoute()
 
 const { data: post } = await useAsyncData(route.path, () => {
@@ -39,6 +40,14 @@ const breadcrumbs = [
   { label: 'ブログ', to: '/blog' },
   { label: post.value?.title || '記事' }
 ]
+
+onMounted(() => {
+  mediumZoom('.article-content img', {
+    margin: 16,
+    background: 'rgba(0, 0, 0, 0.8)',
+    scrollOffset: 0,
+  })
+})
 </script>
 
 <template>
@@ -72,7 +81,7 @@ const breadcrumbs = [
       <!-- Main Content -->
       <div class="lg:col-span-8">
         <div
-          class="prose prose-slate max-w-none bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative [&>*:first-child]:mt-0! [&>div:first-child>*:first-child]:mt-0! prose-code:before:content-none prose-code:after:content-none">
+          class="article-content prose prose-slate max-w-none bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative [&>*:first-child]:mt-0! [&>div:first-child>*:first-child]:mt-0! prose-code:before:content-none prose-code:after:content-none">
           <ContentRenderer :value="post" />
         </div>
       </div>
