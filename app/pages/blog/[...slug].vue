@@ -24,7 +24,15 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, async ()
 useSeoMeta({
   title: post.value?.title ? `${post.value.title} - samenoko-dayo` : 'samenoko-dayo',
   description: post.value?.description,
-  ogImage: `https://ogen.samenoko.work/og?t=${post.value?.title}&d=${post.value?.description}`
+  // ogImage: `https://ogen.samenoko.work/og?t=${post.value?.title}&d=${post.value?.description}`
+})
+
+defineOgImage("BlogOg.satori", {
+  title: post.value?.title,
+  description: post.value?.description,
+}, {
+  emojis: 'twemoji',
+  fonts: ["Inter", "Noto Sans JP"]
 })
 
 const breadcrumbs = [
@@ -43,25 +51,19 @@ const breadcrumbs = [
         <Icon name="lucide:calendar" />
         {{ new Date(post.date).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }) }}
       </div>
-      
-      <h1
-        class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
         {{ post.title }}
       </h1>
 
       <div v-if="post.tags && post.tags.length > 0" class="flex flex-wrap justify-center gap-2 mb-8">
-        <NuxtLink 
-          v-for="tag in post.tags" 
-          :key="tag.name"
-          :to="`/blog/tags/${tag.name}`"
-          class="text-xs font-black uppercase tracking-widest px-3 py-1 bg-slate-100 text-slate-500 rounded-lg border border-slate-200 hover:bg-slate-950 hover:text-white transition-all hover:scale-105 active:scale-95"
-        >
+        <NuxtLink v-for="tag in post.tags" :key="tag.name" :to="`/blog/tags/${tag.name}`"
+          class="text-xs font-black uppercase tracking-widest px-3 py-1 bg-slate-100 text-slate-500 rounded-lg border border-slate-200 hover:bg-slate-950 hover:text-white transition-all hover:scale-105 active:scale-95">
           #{{ tag.name }}
         </NuxtLink>
       </div>
 
-      <p v-if="post.description"
-        class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+      <p v-if="post.description" class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
         {{ post.description }}
       </p>
     </header>
@@ -89,30 +91,29 @@ const breadcrumbs = [
     </div>
 
     <!-- Pagination -->
-    <nav v-if="surround && (surround.next || surround.prev)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12" aria-label="Pagination">
-      <NuxtLink 
-        v-if="surround.next" 
-        :to="surround.next.path" 
-        class="group flex flex-col items-start p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-400 hover:shadow-md transition-all duration-300"
-      >
-        <span class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2 group-hover:text-slate-600">
+    <nav v-if="surround && (surround.next || surround.prev)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12"
+      aria-label="Pagination">
+      <NuxtLink v-if="surround.next" :to="surround.next.path"
+        class="group flex flex-col items-start p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-400 hover:shadow-md transition-all duration-300">
+        <span
+          class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2 group-hover:text-slate-600">
           <Icon name="lucide:arrow-left-circle" class="w-4 h-4 transition-transform group-hover:-translate-x-1" />
           次の記事
         </span>
-        <span class="text-base font-extrabold text-slate-800 leading-snug group-hover:text-slate-950">{{ surround.next.title }}</span>
+        <span class="text-base font-extrabold text-slate-800 leading-snug group-hover:text-slate-950">{{
+          surround.next.title }}</span>
       </NuxtLink>
       <div v-else class="hidden sm:block"></div>
 
-      <NuxtLink 
-        v-if="surround.prev" 
-        :to="surround.prev.path" 
-        class="group flex flex-col items-end text-right p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-400 hover:shadow-md transition-all duration-300 ml-auto w-full"
-      >
-        <span class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2 group-hover:text-slate-600">
+      <NuxtLink v-if="surround.prev" :to="surround.prev.path"
+        class="group flex flex-col items-end text-right p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-400 hover:shadow-md transition-all duration-300 ml-auto w-full">
+        <span
+          class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2 group-hover:text-slate-600">
           前の記事
           <Icon name="lucide:arrow-right-circle" class="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </span>
-        <span class="text-base font-extrabold text-slate-800 leading-snug group-hover:text-slate-950">{{ surround.prev.title }}</span>
+        <span class="text-base font-extrabold text-slate-800 leading-snug group-hover:text-slate-950">{{
+          surround.prev.title }}</span>
       </NuxtLink>
     </nav>
 

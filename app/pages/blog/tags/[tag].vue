@@ -11,7 +11,7 @@ const { data: posts } = await useAsyncData(`posts-tag-${tagParam.value}`, () => 
 
 const filteredPosts = computed(() => {
   if (!posts.value) return []
-  return posts.value.filter(post => 
+  return posts.value.filter(post =>
     post.tags?.some((t: any) => t.name === tagParam.value)
   )
 })
@@ -26,6 +26,14 @@ useSeoMeta({
   title: `#${tagParam.value} - タグ - samenoko-dayo`,
   description: `#${tagParam.value} が付いたすべての記事を表示しています。`
 })
+
+defineOgImage("BlogOg.satori", {
+  title: `#${tagParam.value}`,
+  description: `#${tagParam.value}が付いたすべての記事`,
+}, {
+  emojis: 'twemoji',
+  fonts: ["Inter", "Noto Sans JP"]
+})
 </script>
 
 <template>
@@ -33,7 +41,8 @@ useSeoMeta({
     <AppBreadcrumbs :items="breadcrumbs" />
 
     <header class="mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-sm font-bold uppercase tracking-widest mb-4 border border-slate-200">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-sm font-bold uppercase tracking-widest mb-4 border border-slate-200">
         <Icon name="lucide:tag" class="text-xs" />
         タグアーカイブ
       </div>
@@ -58,7 +67,8 @@ useSeoMeta({
           <Icon name="lucide:search-x" />
         </div>
         <p class="text-slate-500">このタグが付いた記事は見つかりませんでした。</p>
-        <NuxtLink to="/blog/tags" class="mt-6 inline-block text-slate-900 font-bold underline underline-offset-4 decoration-slate-200 hover:decoration-slate-900 transition-all">
+        <NuxtLink to="/blog/tags"
+          class="mt-6 inline-block text-slate-900 font-bold underline underline-offset-4 decoration-slate-200 hover:decoration-slate-900 transition-all">
           すべてのタグを見る
         </NuxtLink>
       </div>

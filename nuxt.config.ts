@@ -59,10 +59,40 @@ export default defineNuxtConfig({
       },
     },
   },
+  ogImage: {
+    fontSubsets: ["latin", "japanese"]
+  },
+  fonts: {
+    families: [
+      {
+        name: "Inter",
+        weights: [500, 700],
+        provider: "google",
+        global: true,
+        preload: true
+      },
+      {
+        name: "Noto Sans JP",
+        src: "/fonts/NotoSansJP-Bold.ttf",
+        weight: 700,
+        global: true,
+        preload: true
+      },
+      {
+        name: "Noto Sans JP",
+        src: "/fonts/NotoSansJP-Medium.ttf",
+        weight: 500,
+        global: true,
+        preload: true
+      }
+    ]
+  },
   modules: [
     "@nuxt/content",
     "@nuxt/image",
-    "@nuxt/icon"
+    "@nuxt/icon",
+    "nuxt-og-image",
+    "@nuxt/fonts",
   ],
   image: {
     format: ["webp", "avif"],
