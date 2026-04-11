@@ -42,7 +42,7 @@ const breadcrumbs = [
 ]
 
 onMounted(() => {
-  mediumZoom('.article-content img', {
+  mediumZoom('.article-content img:not(.remark-link-card-plus__image, .remark-link-card-plus__favicon)', {
     margin: 16,
     background: 'rgba(0, 0, 0, 0.8)',
     scrollOffset: 0,
